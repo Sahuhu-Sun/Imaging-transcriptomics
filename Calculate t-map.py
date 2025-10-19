@@ -5,7 +5,7 @@ import statsmodels.formula.api as smf
 df = pd.read_excel(path + '/subjects.xlsx', index_col=0,sheet_name=1) 
 df['Dx'] = df['Dx'].astype('category')
 
-# Take out the column corresponding to the SUVR value of the brain region.
+# Take out the column corresponding to the measure value (SUVR/FWF/...) of the brain region.
 ya = df.iloc[:, :83] 
 
 t_stats=[];p_val=[];age_p=[];sex_p=[];edu_p=[]
@@ -40,3 +40,4 @@ df_new['label']=dkatlas['label']
 df_new['hemisphere']=dkatlas['hemisphere']
 
 df_new.to_excel(path + '/t_map_pval.xlsx')
+
